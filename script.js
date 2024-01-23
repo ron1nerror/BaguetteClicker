@@ -641,7 +641,7 @@ function calculateResearchBoost()
 
 //silly stockmarket
 let stocks = 0;
-let stockPrice = 100 + calculateBPS() * 60;
+let stockPrice = 100;
 
 function buyStocks(amount){
     const cost = amount * stockPrice;
@@ -668,7 +668,7 @@ function updateStocks(){
     document.getElementById("stock-price").textContent = stockPrice;
 }
 setInterval(function updateStockPrice(){
-    stockPrice = Math.floor(Math.random() * 100) + 1;
+    stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
 }, 60000);
 setInterval(updateStocks, 1);
 //end silly stockmarket
