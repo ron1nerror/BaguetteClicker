@@ -669,8 +669,10 @@ function updateStocks(){
 }
 setInterval(function updateStockPrice(){
     stockPrice = Math.floor(Math.random() * 100) + 1;
-    updateStocks();
 }, 10000);
+setInterval(function updateStocks(){
+    updateStocks();
+}, 1);
 
 
 //Auto Generation
