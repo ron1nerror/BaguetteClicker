@@ -669,11 +669,9 @@ function updateStocks(){
 }
 setInterval(function updateStockPrice(){
     stockPrice = Math.floor(Math.random() * 100) + 1;
-}, 10000);
-setInterval(function updateStocks(){
-    updateStocks();
-}, 1);
-
+}, 60000);
+setInterval(updateStocks, 1);
+//end silly stockmarket
 
 //Auto Generation
 setInterval(function generateBaguettes() {
