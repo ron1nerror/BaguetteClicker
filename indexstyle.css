@@ -11,6 +11,12 @@ body, h1, p {
     background-image: url('grassTile.png');
     background-repeat: repeat; /* This ensures the background image is tileable */
   }
+
+  #stock-market {
+    position: absolute; 
+    top: 0; 
+    left: 200px; /* Move the element 200px to the right */
+}
   
   /* Style for Baguettes Text */
   .baguette-text {
