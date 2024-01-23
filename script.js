@@ -641,7 +641,7 @@ function calculateResearchBoost()
 
 //silly stockmarket
 let stocks = 0;
-let stockPrice = 100;
+let stockPrice = 100 + calculateBPS() * 60;
 
 function buyStocks(amount){
     const cost = amount * stockPrice;
