@@ -644,6 +644,7 @@ let stocks = 0;
 let stockPrice = 100;
 
 function buyStocks(amount){
+    const cost = amount * stockPrice;
     if (baguettes >= cost) {
         baguettes -= cost;
         stocks += amount;
