@@ -639,6 +639,38 @@ function calculateResearchBoost()
     return ratio;
 }
 
+//silly stockmarket
+let stocks = 0;
+let stockPrice = 100;
+
+function buyStocks(amount){
+    if (baguettes >= cost) {
+        baguettes -= cost;
+        stocks += amount;
+    } else {
+        playAnimation(document.getElementById("buy-stock-title"), "cantPurchase");
+    }
+       
+}
+
+function sellStocks(amount){
+    if (stocks >= amount) {
+        baguettes += amount * stockPrice;
+        stocks -= amount;
+    } else {
+        playAnimation(document.getElementById("sell-stock-title"), "cantPurchase");
+    }
+}
+
+function updateStocks(){
+    document.getElementById("stock-count").textContent = stocks;
+    document.getElementById("stock-price").textContent = stockPrice;
+}
+setInterval(function updateStockPrice(){
+    stockPrice = Math.floor(Math.random() * 100) + 1;
+    updateStocks();
+}, 10000);
+
 
 //Auto Generation
 setInterval(function generateBaguettes() {
