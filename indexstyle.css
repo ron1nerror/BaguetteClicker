@@ -190,7 +190,7 @@ body, h1, p {
   position: fixed; /* Fixed positioning */
   bottom: 10px; /* 10px from the bottom */
   left: 20%; /* Center horizontally */
-  transform: translateX(-20%); /* Center the container */
+  transform: translateX(-50%); /* Center the container */
   cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
