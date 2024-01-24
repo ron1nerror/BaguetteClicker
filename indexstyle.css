@@ -186,30 +186,28 @@ body, h1, p {
 }
 
 /* for market */
-.stock-market-container {
+.market-container {
   position: fixed; /* Fixed positioning */
   bottom: 10px; /* 10px from the bottom */
-  left: 20%; /* Center horizontally */
-  transform: translateX(-50%); /* Center the container */
+  left: 10px; /* 10px from the left */
   cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
 /* Style for Arrow Button Image */
-#stock-market-button {
+#market-button {
   width: 50px; /* Adjust dimensions as needed */
   height: auto;
 }
 
-.stock-market-text-container {
+.market-text-container {
   position: fixed; /* Fixed positioning */
-  bottom: 70px; /* 10px from the bottom */
-  left: 20%; /* Center horizontally */
-  transform: translateX(-50%); /* Center the container */
+  bottom: 70px; /* 70px from the bottom */
+  left: 10px; /* 10px from the left */
   cursor: pointer; /* Change cursor to indicate it's clickable */
   font-family: 'Silkscreen', sans-serif;
 }
 
-#stock-market-locked-text {
+#market-locked-text {
   color: red;
   font-size: 15px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
