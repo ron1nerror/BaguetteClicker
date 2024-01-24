@@ -231,14 +231,7 @@ function goFurnace()
     window.location.href = 'index.html';
 }
 
-/*function goStockMarket()
-{
-    if (stockmarketUnlocked)
-    {
-        save();
-        window.location.href = 'stockmarket.html';
-        return;
-    }*/ //Stock Market is disabled for now
+
 function goBakery()
 {
     if (bakeryUnlocked)
@@ -278,7 +271,7 @@ function goStockMarket()
     if (baguettes >= 100)
     {
         baguettes -= 100;
-        bakeryUnlocked = true;
+        stockmarketUnlocked = true;
 
         updateBaguetteCounters();
         updateUnlockedFeatures();
