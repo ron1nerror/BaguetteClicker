@@ -14,8 +14,8 @@ body, h1, p {
 
   #stock-market {
     position: absolute; 
-    top: 600px; 
-    left: 600px; /* Move the element 600px to the right */
+    top: 300px; 
+    left: 700px; /* Move the element 600px to the right */
 }
 .furnace-container {
   position: fixed; /* Fixed positioning */
