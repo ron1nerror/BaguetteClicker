@@ -195,7 +195,7 @@ body, h1, p {
 
 /* Style for Arrow Button Image */
 #market-button {
-  width: 50px; /* Adjust dimensions as needed */
+  width: 20px; /* Adjust dimensions as needed !!!! changed the width*/
   height: auto;
 }
 
