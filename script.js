@@ -561,7 +561,8 @@ function save()
         galaxies: galaxies,
         prestiges: prestiges,
         divinebaguettes: divinebaguettes,
-        baguettesGenerated: baguettesGenerated
+        baguettesGenerated: baguettesGenerated,
+        stockmarketUnlocked: stockmarketUnlocked
     }
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -603,7 +604,7 @@ function load()
     if (typeof savedata.prestiges !== "undefined") {prestiges = savedata.prestiges;}else {prestiges = 0;}
     if (typeof savedata.divinebaguettes !== "undefined") {divinebaguettes = savedata.divinebaguettes;}else {divinebaguettes = 0;}
     if (typeof savedata.baguettesGenerated !== "undefined") {baguettesGenerated = savedata.baguettesGenerated;}else {baguettesGenerated = 0;}
-    if (typeof savedata.labSpeed !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
+    if (typeof savedata.stockmarketUnlocked !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
 }
 
 function reset()
@@ -697,8 +698,8 @@ function sellStocks(amount){
 }
 
 function updateStocks(){
-    document.getElementById("stock-count").textContent = stocks;
-    document.getElementById("stock-price").textContent = stockPrice;
+    if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
+    if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
 }
 setInterval(function updateStockPrice(){
     stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
