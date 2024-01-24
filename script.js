@@ -170,6 +170,10 @@ function buyResearchUpgrade()
 
 function updateBaguetteCounters()
 {
+    //stockmarket
+    if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
+    if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
+
     //Update Baguette Counters
     document.getElementById("baguette-count").textContent = format(baguettes);
     document.getElementById("epicbaguette-count").textContent = epicbaguettes;
@@ -562,7 +566,9 @@ function save()
         prestiges: prestiges,
         divinebaguettes: divinebaguettes,
         baguettesGenerated: baguettesGenerated,
-        stockmarketUnlocked: stockmarketUnlocked
+        stockmarketUnlocked: stockmarketUnlocked,
+        stocks: stocks,
+        stockPrice: stockPrice
     }
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -605,6 +611,8 @@ function load()
     if (typeof savedata.divinebaguettes !== "undefined") {divinebaguettes = savedata.divinebaguettes;}else {divinebaguettes = 0;}
     if (typeof savedata.baguettesGenerated !== "undefined") {baguettesGenerated = savedata.baguettesGenerated;}else {baguettesGenerated = 0;}
     if (typeof savedata.stockmarketUnlocked !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
+    if (typeof savedata.stocks !== "undefined") {stocks = savedata.stocks;}else {stocks = 0;}
+    if (typeof savedata.stockPrice !== "undefined") {stockPrice = savedata.stockPrice;}else {stockPrice = 100;}
 }
 
 function reset()
@@ -628,6 +636,8 @@ function reset()
     galaxies = 0;
     baguettesGenerated = 0;
     stockmarketUnlocked = false;
+    stocks = 0;
+    stockPrice = 100;
 
     updateBaguetteCounters();
     updateUnlockedFeatures();
@@ -674,8 +684,8 @@ function calculateResearchBoost()
 }
 
 //silly stockmarket
-let stocks = 0;
-let stockPrice = 100;
+var stocks = 0;
+var stockPrice = 100;
 
 function buyStocks(amount){
     const cost = amount * stockPrice;
@@ -703,6 +713,7 @@ function updateStocks(){
 }
 setInterval(function updateStockPrice(){
     stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
+    updateBaguetteCounters();
 }, 60000);
 setInterval(updateStocks, 1);
 //end silly stockmarket
