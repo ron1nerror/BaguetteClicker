@@ -14,7 +14,7 @@ body, h1, p {
 
   #stock-market {
     position: absolute; 
-    top: 0; 
+    top: 300px; 
     left: 200px; /* Move the element 200px to the right */
 }
   
@@ -183,6 +183,36 @@ body, h1, p {
     color: red;
     font-size: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+/* for market */
+.stock-market-container {
+  position: fixed; /* Fixed positioning */
+  bottom: 10px; /* 10px from the bottom */
+  left: 20%; /* Center horizontally */
+  transform: translateX(-20%); /* Center the container */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+/* Style for Arrow Button Image */
+#stock-market-button {
+  width: 50px; /* Adjust dimensions as needed */
+  height: auto;
+}
+
+.stock-market-text-container {
+  position: fixed; /* Fixed positioning */
+  bottom: 70px; /* 10px from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the container */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  font-family: 'Silkscreen', sans-serif;
+}
+
+#stock-market-locked-text {
+  color: red;
+  font-size: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
 @keyframes cantPurchase {

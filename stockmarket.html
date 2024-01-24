@@ -1,0 +1,26 @@
+<!-- BEGIN: Stock Market Code Area -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baguette Clicker</title>
+    <link rel="stylesheet" href="./stockmarket.css">
+    <script src="./script.js"></script>
+</head>
+<body onload="loadGame()">
+
+<div id="stock-market">
+    <h2>You own: <span id="stock-count">0</span> Stocks</h2>
+    <h2>Stock valued at: <span id="stock-price">0</span></h2>
+    <button id="buyStocksButton" onclick="buyStocks(1)">Buy 1 Stock</button>
+    <button id="sellStocksButton" onclick="sellStocks(1)">Sell 1 Stock</button>
+</div>
+<div class="furnace-text-container">
+    <span> Go to the Furnace</span>
+</div>
+
+<div class="furnace-container">
+    <img src="./arrowDown.png" alt="Arrow Button" id="furnace-arrow" onclick="goFurnace()">
+</div>
+</body>
+</html>

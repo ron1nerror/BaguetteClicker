@@ -231,6 +231,14 @@ function goFurnace()
     window.location.href = 'index.html';
 }
 
+/*function goStockMarket()
+{
+    if (stockmarketUnlocked)
+    {
+        save();
+        window.location.href = 'stockmarket.html';
+        return;
+    }*/ //Stock Market is disabled for now
 function goBakery()
 {
     if (bakeryUnlocked)
@@ -253,6 +261,31 @@ function goBakery()
         save();
     }else {
         playAnimation(document.getElementById("bakery-locked-text"), "cantPurchase");
+    }
+}
+
+function goStockMarket()
+{
+    if (stockmarketUnlocked)
+    {
+        save();
+        window.location.href = 'stockmarket.html';
+        return;
+    }
+
+    //If stockmarket isnt unlocked, allow purchase
+
+    if (baguettes >= 100)
+    {
+        baguettes -= 100;
+        bakeryUnlocked = true;
+
+        updateBaguetteCounters();
+        updateUnlockedFeatures();
+
+        save();
+    }else {
+        playAnimation(document.getElementById("market-locked-text"), "cantPurchase");
     }
 }
 
@@ -346,6 +379,11 @@ function updateUnlockedFeatures()
     {
         document.getElementById("altar-locked-text").textContent = "Go to Epic Altar";
         document.getElementById("altar-locked-text").style.color = "#00ff00";
+    }
+    if (stockmarketUnlocked && document.getElementById("stockmarket-locked-text") != null)
+    {
+        document.getElementById("stockmarket-locked-text").textContent = "Go to Stock Market";
+        document.getElementById("stockmarket-locked-text").style.color = "#00ff00";
     }
 }
 
@@ -572,6 +610,7 @@ function load()
     if (typeof savedata.prestiges !== "undefined") {prestiges = savedata.prestiges;}else {prestiges = 0;}
     if (typeof savedata.divinebaguettes !== "undefined") {divinebaguettes = savedata.divinebaguettes;}else {divinebaguettes = 0;}
     if (typeof savedata.baguettesGenerated !== "undefined") {baguettesGenerated = savedata.baguettesGenerated;}else {baguettesGenerated = 0;}
+    if (typeof savedata.labSpeed !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
 }
 
 function reset()
@@ -594,6 +633,7 @@ function reset()
     altarUnlocked = false;
     galaxies = 0;
     baguettesGenerated = 0;
+    stockmarketUnlocked = false;
 
     updateBaguetteCounters();
     updateUnlockedFeatures();

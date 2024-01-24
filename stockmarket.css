@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap');
+
+
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set tileable background image */
+  body {
+    background-image: url('grassTile.png');
+    background-repeat: repeat; /* This ensures the background image is tileable */
+  }
+
+  #stock-market {
+    position: absolute; 
+    top: 600px; 
+    left: 600px; /* Move the element 600px to the right */
+}
