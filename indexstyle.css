@@ -203,7 +203,7 @@ body, h1, p {
 .stock-market-text-container {
   position: fixed; /* Fixed positioning */
   bottom: 70px; /* 10px from the bottom */
-  left: 50%; /* Center horizontally */
+  left: 20%; /* Center horizontally */
   transform: translateX(-50%); /* Center the container */
   cursor: pointer; /* Change cursor to indicate it's clickable */
   font-family: 'Silkscreen', sans-serif;
