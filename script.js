@@ -693,7 +693,7 @@ var id = 0;
 setInterval(function updateStockPrice() {
     stockPrice = updateValue(stockPrice, calculateRestingValue(0));
     updateBaguetteCounters();
-}, 15000);
+}, 13000);
 
 function calculateRestingValue(id) {
     return 10 * (id + 1) - 1;
@@ -702,7 +702,7 @@ function calculateRestingValue(id) {
 function updateValue(value, restingValue) {
     value += (restingValue - value) * 0.01;
     value += 3 * Math.pow(Math.random() * 2 - 1, 11);
-    return value;
+    return Math.round(value);
 }
 
 function buyStocks(amount){
@@ -718,8 +718,9 @@ function buyStocks(amount){
 
 function sellStocks(amount){
     updateStockPrice();
+    const sellPrice = stockPrice * 0.9; // 10% less than the buying price
     if (stocks >= amount) {
-        baguettes += amount * stockPrice;
+        baguettes += amount * sellPrice;
         stocks -= amount;
     } else {
         playAnimation(document.getElementById("sell-stock-title"), "cantPurchase");
