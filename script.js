@@ -707,7 +707,7 @@ function updateValue(value, restingValue) {
 }
 
 function buyStocks(amount){
-    updateStockPrice();
+    //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
     const cost = amount * stockPrice;
     if (baguettes >= cost) {
         baguettes -= cost;
@@ -718,10 +718,10 @@ function buyStocks(amount){
 }
 
 function sellStocks(amount){
-    updateStockPrice();
+    //updateStockPrice();
     const sellPrice = stockPrice * 0.9; // 10% less than the buying price
     if (stocks >= amount) {
-        baguettes += amount * sellPrice;
+        baguettes += Math.round(amount * sellPrice);
         stocks -= amount;
     } else {
         playAnimation(document.getElementById("sell-stock-title"), "cantPurchase");
