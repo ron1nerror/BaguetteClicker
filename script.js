@@ -702,7 +702,7 @@ function calculateRestingValue(id) {
 
 function updateValue(value, restingValue) {
     value += (restingValue - value) * 0.01;
-    value += 3 * Math.pow(Math.random() * 2 - 1, 11);
+    value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
     return Math.round(value);
 }
 
