@@ -690,10 +690,11 @@ function calculateResearchBoost()
 var stocks = 0;
 var stockPrice = calculateRestingValue(0); // Assuming id is 0
 var id = 0;
-setInterval(function updateStockPrice() {
+function updateStockPrice() {
     stockPrice = updateValue(stockPrice, calculateRestingValue(0));
     updateBaguetteCounters();
-}, 13000);
+}
+setInterval(updateStockPrice, 12000);
 
 function calculateRestingValue(id) {
     return 10 * (id + 1) - 1;
@@ -730,7 +731,7 @@ function sellStocks(amount){
 function updateStocks(){
     if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
-}
+} 
 setInterval(updateStocks, 1);
 /*
 setInterval(function updateStockPrice(){
