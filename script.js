@@ -173,7 +173,8 @@ function updateBaguetteCounters()
     //stockmarket
     if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
-
+    if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
+    
     //Update Baguette Counters
     document.getElementById("baguette-count").textContent = format(baguettes);
     document.getElementById("epicbaguette-count").textContent = epicbaguettes;
@@ -568,7 +569,8 @@ function save()
         baguettesGenerated: baguettesGenerated,
         stockmarketUnlocked: stockmarketUnlocked,
         stocks: stocks,
-        stockPrice: stockPrice
+        stockPrice: stockPrice,
+        id : id
     }
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -613,6 +615,7 @@ function load()
     if (typeof savedata.stockmarketUnlocked !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
     if (typeof savedata.stocks !== "undefined") {stocks = savedata.stocks;}else {stocks = 0;}
     if (typeof savedata.stockPrice !== "undefined") {stockPrice = savedata.stockPrice;}else {stockPrice = 100;}
+    if (typeof savedata.id !== "undefined") {id = savedata.id;}else {id = 0;}
 }
 
 function reset()
@@ -685,20 +688,36 @@ function calculateResearchBoost()
 
 //silly stockmarket
 var stocks = 0;
-var stockPrice = 100;
+var stockPrice = calculateRestingValue(0); // Assuming id is 0
+var id = 0;
+setInterval(function updateStockPrice() {
+    stockPrice = updateValue(stockPrice, calculateRestingValue(0));
+    updateBaguetteCounters();
+}, 15000);
+
+function calculateRestingValue(id) {
+    return 10 * (id + 1) - 1;
+}
+
+function updateValue(value, restingValue) {
+    value += (restingValue - value) * 0.01;
+    value += 3 * Math.pow(Math.random() * 2 - 1, 11);
+    return value;
+}
 
 function buyStocks(amount){
+    updateStockPrice();
     const cost = amount * stockPrice;
     if (baguettes >= cost) {
         baguettes -= cost;
         stocks += amount;
     } else {
         playAnimation(document.getElementById("buy-stock-title"), "cantPurchase");
-    }
-       
+    }   
 }
 
 function sellStocks(amount){
+    updateStockPrice();
     if (stocks >= amount) {
         baguettes += amount * stockPrice;
         stocks -= amount;
@@ -711,11 +730,13 @@ function updateStocks(){
     if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
 }
+setInterval(updateStocks, 1);
+/*
 setInterval(function updateStockPrice(){
     stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
     updateBaguetteCounters();
-}, 60000);
-setInterval(updateStocks, 1);
+}, 15000);
+*/
 //end silly stockmarket
 
 //Auto Generation
