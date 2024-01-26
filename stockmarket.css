@@ -160,9 +160,9 @@ body, h1, p {
   color: purple;
   z-index: 2;
   font-family: 'Silkscreen', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-  animation: fadeInOut 2s infinite;
+  animation: fadeInOut 3s infinite;
 }
 
 @keyframes fadeInOut {

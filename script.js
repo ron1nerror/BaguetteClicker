@@ -751,7 +751,7 @@ function updatePosition() {
     }
 }
 
-setInterval(updatePosition, 2000);
+setInterval(updatePosition, 3000);
 //end silly stockmarket
 
 //Auto Generation
