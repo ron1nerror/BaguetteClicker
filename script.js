@@ -697,7 +697,7 @@ function updateStockPrice() {
 setInterval(updateStockPrice, 12000);
 
 function calculateRestingValue(id) {
-    return 10 * (id + 1) - 1;
+    return 10 * (id + 1) - 1 + 100;
 }
 
 function updateValue(value, restingValue) {
