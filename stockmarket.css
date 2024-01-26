@@ -151,3 +151,19 @@ body, h1, p {
   font-size: 40px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
+
+#random-text {
+  position: absolute;
+  color: purple;
+  z-index: 2;
+  font-family: 'Silkscreen', sans-serif;
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}

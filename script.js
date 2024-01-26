@@ -739,6 +739,17 @@ setInterval(function updateStockPrice(){
     updateBaguetteCounters();
 }, 15000);
 */
+var textElement = document.getElementById('random-text');
+
+function updatePosition() {
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+
+    textElement.style.left = x + 'px';
+    textElement.style.top = y + 'px';
+}
+
+setInterval(updatePosition, 2000);
 //end silly stockmarket
 
 //Auto Generation
