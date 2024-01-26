@@ -16,6 +16,9 @@ body, h1, p {
     position: absolute; 
     top: 300px; 
     left: 100px; /* Move the element 100px to the right */
+    background-color: lightgrey; /* Add a light grey background */
+    padding: 20px; /* Add some space around the content */
+    border-radius: 10px; /* Optional: Add rounded corners */
 }
 .furnace-container {
   position: fixed; /* Fixed positioning */

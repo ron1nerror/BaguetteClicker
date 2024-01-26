@@ -742,11 +742,13 @@ setInterval(function updateStockPrice(){
 var textElement = document.getElementById('random-text');
 
 function updatePosition() {
-    var x = Math.random() * window.innerWidth;
-    var y = Math.random() * window.innerHeight;
+    if (textElement) {
+        var x = Math.random() * window.innerWidth;
+        var y = Math.random() * window.innerHeight;
 
-    textElement.style.left = x + 'px';
-    textElement.style.top = y + 'px';
+        textElement.style.left = x + 'px';
+        textElement.style.top = y + 'px';
+    }
 }
 
 setInterval(updatePosition, 2000);
