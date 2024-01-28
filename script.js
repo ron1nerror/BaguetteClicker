@@ -175,36 +175,6 @@ function updateBaguetteCounters()
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
-    //testing stuff
-    var buy10Button = document.getElementById('buy10');
-    if (buy10Button) {
-        buy10Button.addEventListener('click', function() {
-            buyStocks(10);
-        });
-    }
-
-    var sell10Button = document.getElementById('sell10');
-    if (sell10Button) {
-        sell10Button.addEventListener('click', function() {
-            sellStocks(10);
-        });
-    }
-
-    var buyAllButton = document.getElementById('buyAll');
-    if (buyAllButton) {
-        buyAllButton.addEventListener('click', function() {
-            const maxBuyable = getAllBuyableStocks();
-            buyStocks(maxBuyable);
-        });
-    }
-
-    var sellAllButton = document.getElementById('sellAll');
-    if (sellAllButton) {
-        sellAllButton.addEventListener('click', function() {
-            sellStocks(stocks);
-        });
-    }
-    //end of testing stuff
     document.getElementById('buy10').addEventListener('click', function() {
         buyStocks(10);
     });
@@ -221,6 +191,8 @@ function updateBaguetteCounters()
     document.getElementById('sellAll').addEventListener('click', function() {
         sellStocks(stocks); // Assuming stockCount is the variable holding the current number of stocks
     });
+   
+    
     //Update Baguette Counters
     document.getElementById("baguette-count").textContent = format(baguettes);
     document.getElementById("epicbaguette-count").textContent = epicbaguettes;
@@ -740,6 +712,38 @@ function updateStockPrice() {
     stockPrice = updateValue(stockPrice, calculateRestingValue(0));
     updateBaguetteCounters();
 }
+
+ //testing stuff
+ var buy10Button = document.getElementById('buy10');
+ if (buy10Button) {
+     buy10Button.addEventListener('click', function() {
+         buyStocks(10);
+     });
+ }
+
+ var sell10Button = document.getElementById('sell10');
+ if (sell10Button) {
+     sell10Button.addEventListener('click', function() {
+         sellStocks(10);
+     });
+ }
+
+ var buyAllButton = document.getElementById('buyAll');
+ if (buyAllButton) {
+     buyAllButton.addEventListener('click', function() {
+         const maxBuyable = getAllBuyableStocks();
+         buyStocks(maxBuyable);
+     });
+ }
+
+ var sellAllButton = document.getElementById('sellAll');
+ if (sellAllButton) {
+     sellAllButton.addEventListener('click', function() {
+         sellStocks(stocks);
+     });
+ }
+ //end of testing stuff
+ 
 setInterval(updateStockPrice, 12000);
 
 function calculateRestingValue(id) {
