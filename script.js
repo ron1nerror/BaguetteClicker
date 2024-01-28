@@ -175,15 +175,6 @@ function updateBaguetteCounters()
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
-    
-    if (document.getElementById('buyAll') !=null) {document.addEventListener('click', function() {
-        const maxBuyable = getAllBuyableStocks();
-        buyStocks(maxBuyable);
-    });}
-    
-    if (document.getElementById('sellAll') !=null) {document.addEventListener('click', function() {
-        sellStocks(stocks); // Assuming stockCount is the variable holding the current number of stocks
-    });}
    
     
     //Update Baguette Counters
