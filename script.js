@@ -707,7 +707,7 @@ function updateStockPrice() {
 }
 
  //testing stuff
-
+/*
  var buyAllButton = document.getElementById('buyAll');
  if (buyAllButton) {
      buyAllButton.addEventListener('click', function() {
@@ -723,7 +723,7 @@ function updateStockPrice() {
      });
  }
  //end of testing stuff fd
-
+*/
 setInterval(updateStockPrice, 12000);
 
 function calculateRestingValue(id) {
@@ -765,12 +765,7 @@ function updateStocks(){
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
 } 
 setInterval(updateStocks, 1);
-/*
-setInterval(function updateStockPrice(){
-    stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
-    updateBaguetteCounters();
-}, 15000);
-*/
+
 var textElement = document.getElementById('random-text');
 
 function updatePosition() {
@@ -782,10 +777,11 @@ function updatePosition() {
         textElement.style.top = y + 'px';
     }
 }
+/*
 function getAllBuyableStocks() {
     return Math.floor(baguettes / stockPrice);
 }
-
+*/
 setInterval(updatePosition, 3000);
 //end silly stockmarket
 
