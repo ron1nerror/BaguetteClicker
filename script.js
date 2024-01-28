@@ -175,6 +175,22 @@ function updateBaguetteCounters()
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
+    document.getElementById('buy10').addEventListener('click', function() {
+        buyStocks(10);
+    });
+    
+    document.getElementById('sell10').addEventListener('click', function() {
+        sellStocks(10);
+    });
+    
+    document.getElementById('buyAll').addEventListener('click', function() {
+        const maxBuyable = getAllBuyableStocks();
+        buyStocks(maxBuyable);
+    });
+    
+    document.getElementById('sellAll').addEventListener('click', function() {
+        sellStocks(stocks); // Assuming stockCount is the variable holding the current number of stocks
+    });
     //Update Baguette Counters
     document.getElementById("baguette-count").textContent = format(baguettes);
     document.getElementById("epicbaguette-count").textContent = epicbaguettes;
@@ -749,6 +765,9 @@ function updatePosition() {
         textElement.style.left = x + 'px';
         textElement.style.top = y + 'px';
     }
+}
+function getAllBuyableStocks() {
+    return Math.floor(baguettes / stockPrice);
 }
 
 setInterval(updatePosition, 3000);
