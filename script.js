@@ -722,7 +722,7 @@ function updateStockPrice() {
          sellStocks(stocks);
      });
  }
- //end of testing stuff
+ //end of testing stuff fd
 
 setInterval(updateStockPrice, 12000);
 
