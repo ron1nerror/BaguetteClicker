@@ -757,6 +757,7 @@ function updateValue(value, restingValue) {
 }
 
 function buyStocks(amount){
+    console.log("You bought stock");
     //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
     const cost = amount * stockPrice;
     if (baguettes >= cost) {
@@ -768,6 +769,7 @@ function buyStocks(amount){
 }
 
 function sellStocks(amount){
+    console.log("You sold stock");
     //updateStockPrice();
     const sellPrice = stockPrice * 0.9; // 10% less than the buying price
     if (stocks >= amount) {
