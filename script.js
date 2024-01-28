@@ -175,13 +175,6 @@ function updateBaguetteCounters()
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
-    if (document.getElementById('buy10') !=null) {document.addEventListener('click', function() {
-        buyStocks(10);
-    });}
-    
-    if (document.getElementById('sell10') !=null) {document.addEventListener('click', function() {
-        sellStocks(10);
-    });}
     
     if (document.getElementById('buyAll') !=null) {document.addEventListener('click', function() {
         const maxBuyable = getAllBuyableStocks();
@@ -714,19 +707,6 @@ function updateStockPrice() {
 }
 
  //testing stuff
- var buy10Button = document.getElementById('buy10');
- if (buy10Button) {
-     buy10Button.addEventListener('click', function() {
-         buyStocks(10);
-     });
- }
-
- var sell10Button = document.getElementById('sell10');
- if (sell10Button) {
-     sell10Button.addEventListener('click', function() {
-         sellStocks(10);
-     });
- }
 
  var buyAllButton = document.getElementById('buyAll');
  if (buyAllButton) {
