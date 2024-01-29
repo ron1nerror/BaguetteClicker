@@ -172,6 +172,7 @@ function updateBaguetteCounters()
 {
     //stockmarket
     if (document.getElementById("stock-owned") != null) {document.getElementById("stock-owned").textContent = stocks;}
+    if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
@@ -706,14 +707,12 @@ function calculateResearchBoost()
             value += value * ((Math.random() - 0.5) * 0.3); // Change is now 15% of the current value
             return Math.round(value);
         }
-        /*
         startUpdatingValue() {
             this.updateValueInterval = setInterval(() => {
                 const restingValue = this.calculateRestingValue();
                 this.value = this.updateValue(this.value, restingValue);
             }, 12000);
         }
-        */
         //add buy and sell back here
 
         updateStocks() {
