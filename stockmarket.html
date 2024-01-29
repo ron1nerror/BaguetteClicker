@@ -8,7 +8,7 @@
     <script src="./script.js"></script>
 </head>
 <body onload="loadGame()">
-<div id="random-text">9 out of 10</div>
+<div id="random-text">Buy! Buy! Buy!</div>
 
 <div class="baguette-text"><span id="baguette-count">0</span></div>
 <div class="baguette-img tooltip"><img id="baguette-img" src="./baguette.png" alt="Baguette"></img><span class="tooltiptext">Baguettes</span></div>
@@ -22,13 +22,28 @@
 <div class="BPS-text">BPS: <span id="BPS-count">0</span></div>
 <div class="RBoost-text">RB Boost: <span id="RBoost-count">0</span>x</div>
 
-<div id="stock-market">
-    <h2>You own: <span id="stock-count">0</span> Stocks</h2>
-    <h2>Stock valued at: <span id="stock-price">0</span></h2>
-    <button id="buyStocksButton" onclick="buyStocks(1)">Buy 1 Stock</button>
-    <button id="sellStocksButton" onclick="sellStocks(1)">Sell 1 Stock</button>
-    <button id="buy10" onclick="buyStocks(10)">Buy 10 Stock</button>
-    <button id="sell10" onclick="sellStocks(10)">Sell 10 Stock</button>
+<div class="stock-market-box">
+    <h2>Stock Market 1</h2>
+    <p id="stocks-owned-1">Stocks Owned: 0</p>
+    <p id="stock-value-1">Value: 70010</p>
+    <button id="buy-stock-button-1">Buy Stock</button>
+    <button id="sell-stock-button-1">Sell Stock</button>
+</div>
+
+<div class="stock-market-box">
+    <h2>Stock Market 2</h2>
+    <p id="stocks-owned-2">Stocks Owned: 0</p>
+    <p id="stock-value-2">Value: 1000000</p>
+    <button id="buy-stock-button-2">Buy Stock</button>
+    <button id="sell-stock-button-2">Sell Stock</button>
+</div>
+
+<div class="stock-market-box">
+    <h2>Stock Market 3</h2>
+    <p id="stocks-owned-3">Stocks Owned: 0</p>
+    <p id="stock-value-3">Value: 250010</p>
+    <button id="buy-stock-button-3">Buy Stock</button>
+    <button id="sell-stock-button-3">Sell Stock</button>
 </div>
 <div class="furnace-text-container">
     <span> Go to the Furnace</span>

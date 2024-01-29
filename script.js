@@ -689,74 +689,144 @@ function calculateResearchBoost()
 }
 
 //silly stockmarket
-var stocks = 0;
-var stockPrice = calculateRestingValue(0); // Assuming id is 0
-var id = 0;
-function updateStockPrice() {
-    stockPrice = updateValue(stockPrice, calculateRestingValue(0));
-    updateBaguetteCounters();
+function StockMarket(id, initialValue) {
+    this.id = id;
+    this.stocks = 0;
+    this.stockPrice = this.calculateRestingValue();
+    this.value = initialValue || 0; // Use initialValue if provided, otherwise default to 0
+
+    this.calculateRestingValue = function() {
+        return 10 * (this.id + 1) - 1 + 100;
+    };
+
+    this.updateValue = function(value, restingValue) {
+        value += (restingValue - value) * 0.01;
+        value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
+        return Math.round(value);
+    };
+
+    this.buyStocks = function(amount) {
+        console.log("You bought stock");
+        const cost = amount * this.stockPrice;
+        if (baguettes >= cost) {
+            baguettes -= cost;
+            this.stocks += amount;
+        } else {
+            playAnimation(document.getElementById("buy-stock-title-" + this.id), "cantPurchase");
+        }
+    };
+
+    this.sellStocks = function(amount) {
+        console.log("You sold stock");
+        const sellPrice = this.stockPrice;
+        if (this.stocks >= amount) {
+            baguettes += Math.round(amount * sellPrice);
+            this.stocks -= amount;
+        } else {
+            playAnimation(document.getElementById("sell-stock-title-" + this.id), "cantPurchase");
+        }
+    };
+
+    this.updateStocks = function() {
+        if (document.getElementById("stock-count-" + this.id) != null) {
+            document.getElementById("stock-count-" + this.id).textContent = this.stocks;
+        }
+        if (document.getElementById("stock-price-" + this.id) != null) {
+            document.getElementById("stock-price-" + this.id).textContent = this.stockPrice;
+        }
+    };
 }
 
- //testing stuff
-/*
- var buyAllButton = document.getElementById('buyAll');
- if (buyAllButton) {
-     buyAllButton.addEventListener('click', function() {
-         const maxBuyable = getAllBuyableStocks();
-         buyStocks(maxBuyable);
-     });
- }
+StockMarket.prototype.buyStocks = function(amount) {
+    // ... your existing code to buy stocks ...
 
- var sellAllButton = document.getElementById('sellAll');
- if (sellAllButton) {
-     sellAllButton.addEventListener('click', function() {
-         sellStocks(stocks);
-     });
- }
- //end of testing stuff fd
-*/
-setInterval(updateStockPrice, 12000);
+    this.updateDisplay();
+};
 
-function calculateRestingValue(id) {
-    return 10 * (id + 1) - 1 + 100;
+StockMarket.prototype.sellStocks = function(amount) {
+    // ... your existing code to sell stocks ...
+
+    this.updateDisplay();
+};
+
+StockMarket.prototype.updateDisplay = function() {
+    document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
+    document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
+};
+
+// Create three stock markets
+var stockMarket1 = new StockMarket(7000, 70010);
+var stockMarket2 = new StockMarket(99999, 1000000);
+var stockMarket3 = new StockMarket(25000, 250010);
+
+
+setInterval(function() {
+    var restingValue1 = stockMarket1.calculateRestingValue();
+    var restingValue2 = stockMarket2.calculateRestingValue();
+    var restingValue3 = stockMarket3.calculateRestingValue();
+
+    stockMarket1.updateValue(restingValue1);
+    stockMarket2.updateValue(restingValue2);
+    stockMarket3.updateValue(restingValue3);
+
+    stockMarket1.updateStocks();
+    stockMarket2.updateStocks();
+    stockMarket3.updateStocks();
+}, 1);
+
+//buttons for silly stockmarket
+var buyStockButton1 = document.getElementById("buy-stock-button-1");
+var sellStockButton1 = document.getElementById("sell-stock-button-1");
+var buyStockButton2 = document.getElementById("buy-stock-button-2");
+var sellStockButton2 = document.getElementById("sell-stock-button-2");
+var buyStockButton3 = document.getElementById("buy-stock-button-3");
+var sellStockButton3 = document.getElementById("sell-stock-button-3");
+
+//buy stock 1
+if (buyStockButton1) {
+    buyStockButton1.addEventListener('click', function() {
+        stockMarket1.buyStocks(1);
+    });
 }
 
-function updateValue(value, restingValue) {
-    value += (restingValue - value) * 0.01;
-    value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
-    return Math.round(value);
+//sell stock 1
+if (sellStockButton1) {
+    sellStockButton1.addEventListener('click', function() {
+        stockMarket1.sellStocks(1);
+    });
 }
 
-function buyStocks(amount){
-    console.log("You bought stock");
-    //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
-    const cost = amount * stockPrice;
-    if (baguettes >= cost) {
-        baguettes -= cost;
-        stocks += amount;
-    } else {
-        playAnimation(document.getElementById("buy-stock-title"), "cantPurchase");
-    }   
-}
-
-function sellStocks(amount){
-    console.log("You sold stock");
-    //updateStockPrice();
-    const sellPrice = stockPrice * 0.9; // 10% less than the buying price
-    if (stocks >= amount) {
-        baguettes += Math.round(amount * sellPrice);
-        stocks -= amount;
-    } else {
-        playAnimation(document.getElementById("sell-stock-title"), "cantPurchase");
+//buy stock 2
+if (buyStockButton2) {
+    buyStockButton2.addEventListener('click', function() {
+        stockMarket2.buyStocks(1);
     }
+    );
 }
 
-function updateStocks(){
-    if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
-    if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
-} 
-setInterval(updateStocks, 1);
+//sell stock 2
+if (sellStockButton2) {
+    sellStockButton2.addEventListener('click', function() {
+        stockMarket2.sellStocks(1);
+    }
+    );
+}
 
+//buy stock 3
+if (buyStockButton3) {
+    buyStockButton3.addEventListener('click', function() {
+        stockMarket3.buyStocks(1);
+    }
+    );
+}
+
+//sell stock 3
+if (sellStockButton3) {
+    sellStockButton3.addEventListener('click', function() {
+        stockMarket3.sellStocks(1);
+    }
+    );
+}
 var textElement = document.getElementById('random-text');
 
 function updatePosition() {
