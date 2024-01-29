@@ -706,27 +706,7 @@ class StockMarket {
         return Math.round(value);
     }
 
-    buyStocks() {
-        console.log("You bought stock");
-        const cost = this.stockPrice;
-        if (baguettes >= cost) {
-            baguettes -= cost;
-            this.stocks++;
-        } else {
-            playAnimation(document.getElementById("buy-stock-title-" + this.id), "cantPurchase");
-        }
-    }
-
-    sellStocks() {
-        console.log("You sold stock");
-        const sellPrice = this.stockPrice;
-        if (this.stocks > 0) {
-            baguettes += Math.round(sellPrice);
-            this.stocks--;
-        } else {
-            playAnimation(document.getElementById("sell-stock-title-" + this.id), "cantPurchase");
-        }
-    }
+    //add buy and sell back here
 
     updateStocks() {
         if (document.getElementById("stock-count-" + this.id) != null) {
@@ -746,6 +726,28 @@ class StockMarket {
 StockMarket.prototype.updateDisplay = function() {
     document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
     document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
+};
+
+StockMarket.prototype.buyStocks = function(amount) {
+    console.log("You bought stock");
+        const cost = this.stockPrice;
+        if (baguettes >= cost) {
+            baguettes -= cost;
+            this.stocks++;
+        } else {
+            playAnimation(document.getElementById("buy-stock-title-" + this.id), "cantPurchase");
+        }
+};
+
+StockMarket.prototype.sellStocks = function(amount) {
+    console.log("You sold stock");
+        const sellPrice = this.stockPrice;
+        if (this.stocks > 0) {
+            baguettes += Math.round(sellPrice);
+            this.stocks--;
+        } else {
+            playAnimation(document.getElementById("sell-stock-title-" + this.id), "cantPurchase");
+        }
 };
 
 // Create three stock markets
@@ -779,21 +781,21 @@ var sellStockButton3 = document.getElementById("sell-stock-button-3");
 //buy stock 1
 if (buyStockButton1) {
     buyStockButton1.addEventListener('click', function() {
-        stockMarket1.buyStocks(1);
+        stockMarket1.buyStocks(10);
     });
 }
 
 //sell stock 1
 if (sellStockButton1) {
     sellStockButton1.addEventListener('click', function() {
-        stockMarket1.sellStocks(1);
+        stockMarket1.sellStocks(10);
     });
 }
 
 //buy stock 2
 if (buyStockButton2) {
     buyStockButton2.addEventListener('click', function() {
-        stockMarket2.buyStocks(1);
+        stockMarket2.buyStocks(10);
     }
     );
 }
@@ -801,7 +803,7 @@ if (buyStockButton2) {
 //sell stock 2
 if (sellStockButton2) {
     sellStockButton2.addEventListener('click', function() {
-        stockMarket2.sellStocks(1);
+        stockMarket2.sellStocks(10);
     }
     );
 }
@@ -809,7 +811,7 @@ if (sellStockButton2) {
 //buy stock 3
 if (buyStockButton3) {
     buyStockButton3.addEventListener('click', function() {
-        stockMarket3.buyStocks(1);
+        stockMarket3.buyStocks(10);
     }
     );
 }
@@ -817,7 +819,7 @@ if (buyStockButton3) {
 //sell stock 3
 if (sellStockButton3) {
     sellStockButton3.addEventListener('click', function() {
-        stockMarket3.sellStocks(1);
+        stockMarket3.sellStocks(10);
     }
     );
 }
