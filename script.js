@@ -707,6 +707,13 @@ function calculateResearchBoost()
             return Math.round(value);
         }
 
+        startUpdatingValue() {
+            this.updateValueInterval = setInterval(() => {
+                const restingValue = this.calculateRestingValue();
+                this.value = this.updateValue(this.value, restingValue);
+            }, 12000);
+        }
+
         //add buy and sell back here
 
         updateStocks() {
