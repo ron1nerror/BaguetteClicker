@@ -754,7 +754,7 @@ function updateStocks(){
     if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
 } 
-setInterval(updateStocks, 1);
+setInterval(updateStocks, 100);
 // stock market 2 electric boogaloo <- noah it wanted me to add this comment and i couldnt resist
 var stocks2 = 0;
 var stockPrice2 = calculateRestingValue(25000); // Assuming id is 25000
@@ -793,7 +793,7 @@ function updateStocks2(){
     if (document.getElementById("stock-price2") !=null) {document.getElementById("stock-price2").textContent = stockPrice2;}
 }
 
-setInterval(updateStocks2, 1);
+setInterval(updateStocks2, 100);
 
 // stock market 3 electric boogaloo <- now Im just keeping with the theme
 var stocks3 = 0;
@@ -833,7 +833,7 @@ function updateStocks3(){
     if (document.getElementById("stock-price3") !=null) {document.getElementById("stock-price3").textContent = stockPrice3;}
 }
 
-setInterval(updateStocks3, 1);
+setInterval(updateStocks3, 100);
 
 // end of stock markets 1, 2, and 3
 
