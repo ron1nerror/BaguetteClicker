@@ -573,7 +573,10 @@ function save()
         stockmarketUnlocked: stockmarketUnlocked,
         stocks: stocks,
         stockPrice: stockPrice,
-        id : id
+        id : id,
+        stockMarket1: stockMarket1,
+        stockMarket2: stockMarket2,
+        stockMarket3: stockMarket3
     }
 
     localStorage.setItem("save", JSON.stringify(save));
