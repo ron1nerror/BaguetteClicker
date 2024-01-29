@@ -716,11 +716,14 @@ function calculateResearchBoost()
         //add buy and sell back here
 
         updateStocks() {
-            if (document.getElementById("stock-count-" + this.id) != null) {
-                document.getElementById("stock-owned-" + this.id).textContent = this.stocks;
+            let stockOwnedElement = document.getElementById("stock-owned-" + this.id);
+            if (stockOwnedElement != null) {
+                stockOwnedElement.textContent = this.stocks;
             }
-            if (document.getElementById("stock-count-" + this.id) != null) {
-                document.getElementById("stock-price-" + this.id).textContent = this.stockPrice;
+        
+            let stockPriceElement = document.getElementById("stock-price-" + this.id);
+            if (stockPriceElement != null) {
+                stockPriceElement.textContent = this.stockPrice;
             }
         }
 
