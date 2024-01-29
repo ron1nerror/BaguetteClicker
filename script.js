@@ -657,12 +657,12 @@ function reset()
     stockmarketUnlocked = false;
     stocks = 0;
     stockPrice = 7000;
-    id = 7000;
+    id = 70000;
     stocks2 = 0;
-    stockPrice2 = 25000;
+    stockPrice2 = 250000;
     id2 = 25000;
     stocks3 = 0;
-    stockPrice3 = 99999;
+    stockPrice3 = 999999;
     id3 = 99999;
 
     updateBaguetteCounters();
