@@ -26,10 +26,12 @@ body, h1, p {
 #stock-market-1,
 #stock-market-2,
 #stock-market-3 {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 300px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  background-color: #fff; /* Add this line */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add this line for a shadow effect */
 }
 
 h2 {
