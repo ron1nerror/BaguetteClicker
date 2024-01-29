@@ -23,40 +23,34 @@ body, h1, p {
     font-family: Arial, sans-serif;
 }
 
-.stock-market-box {
+#stock-market-1,
+#stock-market-2,
+#stock-market-3 {
     border: 1px solid #ccc;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
-}
-
-.stock-market-box h2 {
-    color: #333;
     margin-bottom: 20px;
+    width: 300px;
 }
 
-.stock-market-box p {
-    margin-bottom: 10px;
+h2 {
+    color: #333;
 }
 
-.stock-market-box button {
-    padding: 10px 20px;
+button {
+    background-color: #4CAF50; /* Green */
     border: none;
-    background-color: #007BFF;
-    color: #fff;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    margin-right: 10px;
-    border-radius: 5px;
 }
 
-.stock-market-box button:last-child {
-    margin-right: 0;
-}
-
-.stock-market-box button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #45a049;
 }
 
 .furnace-container {
