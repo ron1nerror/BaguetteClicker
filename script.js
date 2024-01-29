@@ -738,7 +738,7 @@ function calculateResearchBoost()
         document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
     };
 
-    StockMarket.prototype.buyStocks = function(amount) {
+    StockMarket.prototype.buyStocks = function() {
         console.log("You bought stock");
         const cost = this.stockPrice;
         if (typeof baguettes !== 'undefined' && typeof baguettes === 'number' && baguettes >= cost) {
@@ -749,7 +749,7 @@ function calculateResearchBoost()
         }
     };
 
-    StockMarket.prototype.sellStocks = function(amount) {
+    StockMarket.prototype.sellStocks = function() {
         console.log("You sold stock");
         const sellPrice = this.stockPrice;
         if (typeof baguettes !== 'undefined' && typeof baguettes === 'number' && this.stocks > 0) {
