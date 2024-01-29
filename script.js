@@ -174,7 +174,11 @@ function updateBaguetteCounters()
     if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
-    
+    if (document.getElementById("stock-count2") != null) {document.getElementById("stock-count2").textContent = stocks2;}
+    if (document.getElementById("stock-price2") !=null) {document.getElementById("stock-price2").textContent = stockPrice2;}
+    if (document.getElementById("stock-count3") != null) {document.getElementById("stock-count3").textContent = stocks3;}
+    if (document.getElementById("stock-price3") !=null) {document.getElementById("stock-price3").textContent = stockPrice3;}
+
     //Update Baguette Counters
     document.getElementById("baguette-count").textContent = format(baguettes);
     document.getElementById("epicbaguette-count").textContent = epicbaguettes;
@@ -570,7 +574,13 @@ function save()
         stockmarketUnlocked: stockmarketUnlocked,
         stocks: stocks,
         stockPrice: stockPrice,
-        id : id
+        id : id,
+        stocks2: stocks2,
+        stockPrice2: stockPrice2,
+        id2 : id2,
+        stocks3: stocks3,
+        stockPrice3: stockPrice3,
+        id3 : id3
     }
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -615,7 +625,13 @@ function load()
     if (typeof savedata.stockmarketUnlocked !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
     if (typeof savedata.stocks !== "undefined") {stocks = savedata.stocks;}else {stocks = 0;}
     if (typeof savedata.stockPrice !== "undefined") {stockPrice = savedata.stockPrice;}else {stockPrice = 100;}
-    if (typeof savedata.id !== "undefined") {id = savedata.id;}else {id = 0;}
+    if (typeof savedata.id !== "undefined") {id = savedata.id;}else {id = 7000;}
+    if (typeof savedata.stocks2 !== "undefined") {stocks2 = savedata.stocks2;}else {stocks2 = 0;}
+    if (typeof savedata.stockPrice2 !== "undefined") {stockPrice2 = savedata.stockPrice2;}else {stockPrice2 = 25000;}
+    if (typeof savedata.id2 !== "undefined") {id2 = savedata.id2;}else {id2 = 25000;}
+    if (typeof savedata.stocks3 !== "undefined") {stocks3 = savedata.stocks3;}else {stocks3 = 0;}
+    if (typeof savedata.stockPrice3 !== "undefined") {stockPrice3 = savedata.stockPrice3;}else {stockPrice3 = 99999;}
+    if (typeof savedata.id3 !== "undefined") {id3 = savedata.id3;}else {id3 = 99999;}
 }
 
 function reset()
@@ -640,7 +656,14 @@ function reset()
     baguettesGenerated = 0;
     stockmarketUnlocked = false;
     stocks = 0;
-    stockPrice = 100;
+    stockPrice = 7000;
+    id = 7000;
+    stocks2 = 0;
+    stockPrice2 = 25000;
+    id2 = 25000;
+    stocks3 = 0;
+    stockPrice3 = 99999;
+    id3 = 99999;
 
     updateBaguetteCounters();
     updateUnlockedFeatures();
@@ -686,12 +709,12 @@ function calculateResearchBoost()
     return ratio;
 }
 
-//silly stockmarket
+//silly stockmarket  ***silly stockmarket*** code duclplicated from stockmarket.js sorry noah :( 
 var stocks = 0;
-var stockPrice = calculateRestingValue(0); // Assuming id is 0
-var id = 0;
+var stockPrice = calculateRestingValue(7000); // Assuming id is 0
+var id = 7000;
 function updateStockPrice() {
-    stockPrice = updateValue(stockPrice, calculateRestingValue(0));
+    stockPrice = updateValue(stockPrice, calculateRestingValue(7000));
     updateBaguetteCounters();
 }
 setInterval(updateStockPrice, 12000);
@@ -702,12 +725,11 @@ function calculateRestingValue(id) {
 
 function updateValue(value, restingValue) {
     value += (restingValue - value) * 0.01;
-    value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
+    value += value * ((Math.random() - 0.5) * 0.3); // Change is now 15% of the current value
     return Math.round(value);
 }
 
 function buyStocks(amount){
-    //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
     const cost = amount * stockPrice;
     if (baguettes >= cost) {
         baguettes -= cost;
@@ -719,7 +741,7 @@ function buyStocks(amount){
 
 function sellStocks(amount){
     //updateStockPrice();
-    const sellPrice = stockPrice * 0.9; // 10% less than the buying price
+    const sellPrice = stockPrice;
     if (stocks >= amount) {
         baguettes += Math.round(amount * sellPrice);
         stocks -= amount;
@@ -733,12 +755,89 @@ function updateStocks(){
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
 } 
 setInterval(updateStocks, 1);
-/*
-setInterval(function updateStockPrice(){
-    stockPrice = Math.floor(Math.random() * 100) + 1 + calculateBPS() * 60;
+// stock market 2 electric boogaloo <- noah it wanted me to add this comment and i couldnt resist
+var stocks2 = 0;
+var stockPrice2 = calculateRestingValue(25000); // Assuming id is 25000
+var id2 = 25000;
+
+function updateStockPrice2() {
+    stockPrice2 = updateValue(stockPrice2, calculateRestingValue(25000));
     updateBaguetteCounters();
-}, 15000);
-*/
+}
+setInterval(updateStockPrice2, 12000);
+
+function buyStocks2(amount){
+    //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
+    const cost = amount * stockPrice2;
+    if (baguettes >= cost) {
+        baguettes -= cost;
+        stocks2 += amount;
+    } else {
+        playAnimation(document.getElementById("buy-stock-title2"), "cantPurchase");
+    }   
+}
+
+function sellStocks2(amount){
+    //updateStockPrice();
+    const sellPrice = stockPrice2; 
+    if (stocks2 >= amount) {
+        baguettes += Math.round(amount * sellPrice);
+        stocks2 -= amount;
+    } else {
+        playAnimation(document.getElementById("sell-stock-title2"), "cantPurchase");
+    }
+}
+
+function updateStocks2(){
+    if (document.getElementById("stock-count2") != null) {document.getElementById("stock-count2").textContent = stocks2;}
+    if (document.getElementById("stock-price2") !=null) {document.getElementById("stock-price2").textContent = stockPrice2;}
+}
+
+setInterval(updateStocks2, 1);
+
+// stock market 3 electric boogaloo <- now Im just keeping with the theme
+var stocks3 = 0;
+var stockPrice3 = calculateRestingValue(99999); // Assuming id is 99999
+var id3 = 99999;
+
+function updateStockPrice3() {
+    stockPrice3 = updateValue(stockPrice3, calculateRestingValue(99999));
+    updateBaguetteCounters();
+}
+setInterval(updateStockPrice3, 12000);
+
+function buyStocks3(amount){
+    //updateStockPrice();   When I run this, it updates updatebaguettecounters() twice, which is not good
+    const cost = amount * stockPrice3;
+    if (baguettes >= cost) {
+        baguettes -= cost;
+        stocks3 += amount;
+    } else {
+        playAnimation(document.getElementById("buy-stock-title3"), "cantPurchase");
+    }   
+}
+
+function sellStocks3(amount){
+    //updateStockPrice();
+    const sellPrice = stockPrice3; 
+    if (stocks3 >= amount) {
+        baguettes += Math.round(amount * sellPrice);
+        stocks3 -= amount;
+    } else {
+        playAnimation(document.getElementById("sell-stock-title3"), "cantPurchase");
+    }
+}
+
+function updateStocks3(){
+    if (document.getElementById("stock-count3") != null) {document.getElementById("stock-count3").textContent = stocks3;}
+    if (document.getElementById("stock-price3") !=null) {document.getElementById("stock-price3").textContent = stockPrice3;}
+}
+
+setInterval(updateStocks3, 1);
+
+// end of stock markets 1, 2, and 3
+
+
 var textElement = document.getElementById('random-text');
 
 function updatePosition() {
@@ -752,7 +851,7 @@ function updatePosition() {
 }
 
 setInterval(updatePosition, 3000);
-//end silly stockmarket
+//end silly stockmarket ***end silly stockmarket***
 
 //Auto Generation
 setInterval(function generateBaguettes() {
