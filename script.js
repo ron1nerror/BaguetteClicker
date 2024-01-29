@@ -768,7 +768,7 @@ setInterval(function() {
     stockMarket1.updateStocks();
     stockMarket2.updateStocks();
     stockMarket3.updateStocks();
-}, 1);
+}, 100);
 
 //buttons for silly stockmarket
 var buyStockButton1 = document.getElementById("buy-stock-button-1");
