@@ -38,6 +38,7 @@ body, h1, p {
   padding: 20px; /* Add some space around the content */
   border-radius: 10px; /* Optional: Add rounded corners */
 }
+
 .furnace-container {
   position: fixed; /* Fixed positioning */
   top: 10px; /* 10px from the bottom */
