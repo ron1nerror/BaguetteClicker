@@ -171,7 +171,7 @@ function buyResearchUpgrade()
 function updateBaguetteCounters()
 {
     //stockmarket
-    if (document.getElementById("stock-count") != null) {document.getElementById("stock-count").textContent = stocks;}
+    if (document.getElementById("stock-owned") != null) {document.getElementById("stock-owned").textContent = stocks;}
     if (document.getElementById("stock-price") !=null) {document.getElementById("stock-price").textContent = stockPrice;}
     if (document.getElementById("stockmarket-locked-text") != null) {document.getElementById("stockmarket-locked-text").textContent = "Stock Market (Unlocked at 1,000,000 Baguettes)";}
     
@@ -717,8 +717,8 @@ function calculateResearchBoost()
         //add buy and sell back here
 
         updateStocks() {
-            if (document.getElementById("stock-count-" + this.id) != null) {
-                document.getElementById("stock-count-" + this.id).textContent = this.stocks;
+            if (document.getElementById("stock-owned-" + this.id) != null) {
+                document.getElementById("stock-owned-" + this.id).textContent = this.stocks;
             }
             if (document.getElementById("stock-price-" + this.id) != null) {
                 document.getElementById("stock-price-" + this.id).textContent = this.stockPrice;
@@ -727,13 +727,13 @@ function calculateResearchBoost()
 
         updateDisplay() {
             document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
-            document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
+            document.getElementById('stock-price-' + this.id).textContent = 'Value: ' + this.value;
         }
     }
 
     StockMarket.prototype.updateDisplay = function() {
         document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
-        document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
+        document.getElementById('stock-price-' + this.id).textContent = 'Value: ' + this.value;
     };
 
     StockMarket.prototype.buyStocks = function(amount) {
