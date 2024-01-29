@@ -716,23 +716,23 @@ function calculateResearchBoost()
         //add buy and sell back here
 
         updateStocks() {
-            if (document.getElementById("stock-owned-" + this.id) != null) {
+            if (document.getElementById("stock-count-" + this.id) != null) {
                 document.getElementById("stock-owned-" + this.id).textContent = this.stocks;
             }
-            if (document.getElementById("stock-price-" + this.id) != null) {
+            if (document.getElementById("stock-count-" + this.id) != null) {
                 document.getElementById("stock-price-" + this.id).textContent = this.stockPrice;
             }
         }
 
         updateDisplay() {
             document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
-            document.getElementById('stock-price-' + this.id).textContent = 'Value: ' + this.value;
+            document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
         }
     }
 
     StockMarket.prototype.updateDisplay = function() {
         document.getElementById('stocks-owned-' + this.id).textContent = 'Stocks Owned: ' + this.stocks;
-        document.getElementById('stock-price-' + this.id).textContent = 'Value: ' + this.value;
+        document.getElementById('stock-value-' + this.id).textContent = 'Value: ' + this.value;
     };
 
     StockMarket.prototype.buyStocks = function(amount) {
