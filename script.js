@@ -703,7 +703,7 @@ function calculateResearchBoost()
 
         updateValue(value, restingValue) {
             value += (restingValue - value) * 0.01;
-            value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
+            value += value * ((Math.random() - 0.5) * 0.3); // Change is now 15% of the current value
             return Math.round(value);
         }
         /*
