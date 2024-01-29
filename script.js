@@ -624,14 +624,14 @@ function load()
     if (typeof savedata.baguettesGenerated !== "undefined") {baguettesGenerated = savedata.baguettesGenerated;}else {baguettesGenerated = 0;}
     if (typeof savedata.stockmarketUnlocked !== "undefined") {stockmarketUnlocked = savedata.stockmarketUnlocked;}else {stockmarketUnlocked = false;}
     if (typeof savedata.stocks !== "undefined") {stocks = savedata.stocks;}else {stocks = 0;}
-    if (typeof savedata.stockPrice !== "undefined") {stockPrice = savedata.stockPrice;}else {stockPrice = 100;}
+    if (typeof savedata.stockPrice !== "undefined") {stockPrice = savedata.stockPrice;}else {stockPrice = 70000;}
     if (typeof savedata.id !== "undefined") {id = savedata.id;}else {id = 7000;}
     if (typeof savedata.stocks2 !== "undefined") {stocks2 = savedata.stocks2;}else {stocks2 = 0;}
-    if (typeof savedata.stockPrice2 !== "undefined") {stockPrice2 = savedata.stockPrice2;}else {stockPrice2 = 25000;}
+    if (typeof savedata.stockPrice2 !== "undefined") {stockPrice2 = savedata.stockPrice2;}else {stockPrice2 = 250000;}
     if (typeof savedata.id2 !== "undefined") {id2 = savedata.id2;}else {id2 = 25000;}
     if (typeof savedata.stocks3 !== "undefined") {stocks3 = savedata.stocks3;}else {stocks3 = 0;}
     if (typeof savedata.stockPrice3 !== "undefined") {stockPrice3 = savedata.stockPrice3;}else {stockPrice3 = 99999;}
-    if (typeof savedata.id3 !== "undefined") {id3 = savedata.id3;}else {id3 = 99999;}
+    if (typeof savedata.id3 !== "undefined") {id3 = savedata.id3;}else {id3 = 999999;}
 }
 
 function reset()
@@ -720,7 +720,7 @@ function updateStockPrice() {
 setInterval(updateStockPrice, 12000);
 
 function calculateRestingValue(id) {
-    return 10 * (id + 1) - 1 + 100;
+    return 10 * (id + 1) - 1;
 }
 
 function updateValue(value, restingValue) {
