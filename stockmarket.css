@@ -201,3 +201,34 @@ body, h1, p {
   50% {opacity: 0;}
   100% {opacity: 1;}
 }
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Style for the tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  /*padding: 5px;*/
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 150%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when hovering over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
