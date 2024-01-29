@@ -706,14 +706,14 @@ function calculateResearchBoost()
             value += (Math.random() - 0.5) * 6; // Generates a random number between -3 and 3
             return Math.round(value);
         }
-
+        /*
         startUpdatingValue() {
             this.updateValueInterval = setInterval(() => {
                 const restingValue = this.calculateRestingValue();
                 this.value = this.updateValue(this.value, restingValue);
             }, 12000);
         }
-
+        */
         //add buy and sell back here
 
         updateStocks() {
@@ -758,6 +758,11 @@ function calculateResearchBoost()
         }
     };
 
+    setInterval(() => {
+        const restingValue = this.calculateRestingValue();
+        this.value = this.updateValue(this.value, restingValue);
+    }, 12000);
+    
     // Create three stock markets
     var stockMarket1 = new StockMarket(7000, 70010);
     var stockMarket2 = new StockMarket(99999, 1000000);
