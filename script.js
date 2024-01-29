@@ -730,24 +730,24 @@ StockMarket.prototype.updateDisplay = function() {
 
 StockMarket.prototype.buyStocks = function(amount) {
     console.log("You bought stock");
-        const cost = this.stockPrice;
-        if (baguettes >= cost) {
-            baguettes -= cost;
-            this.stocks++;
-        } else {
-            playAnimation(document.getElementById("buy-stock-title-" + this.id), "cantPurchase");
-        }
+    const cost = this.stockPrice;
+    if (typeof baguettes !== 'undefined' && typeof baguettes === 'number' && baguettes >= cost) {
+        baguettes -= cost;
+        this.stocks++;
+    } else {
+        playAnimation(document.getElementById("buy-stock-title-" + this.id), "cantPurchase");
+    }
 };
 
 StockMarket.prototype.sellStocks = function(amount) {
     console.log("You sold stock");
-        const sellPrice = this.stockPrice;
-        if (this.stocks > 0) {
-            baguettes += Math.round(sellPrice);
-            this.stocks--;
-        } else {
-            playAnimation(document.getElementById("sell-stock-title-" + this.id), "cantPurchase");
-        }
+    const sellPrice = this.stockPrice;
+    if (typeof baguettes !== 'undefined' && typeof baguettes === 'number' && this.stocks > 0) {
+        baguettes += Math.round(sellPrice);
+        this.stocks--;
+    } else {
+        playAnimation(document.getElementById("sell-stock-title-" + this.id), "cantSell");
+    }
 };
 
 // Create three stock markets
