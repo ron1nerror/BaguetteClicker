@@ -12,29 +12,52 @@ body, h1, p {
     background-repeat: repeat; /* This ensures the background image is tileable */
   }
 
-  .stock-market-box {
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
-    padding: 10px;
-    position: absolute;
+  body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
-.stock-market-box:nth-child(1) {
-    top: 300px;
-    left: 100px;
+.stock-market-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
 }
 
-.stock-market-box:nth-child(2) {
-    top: 300px;
-    right: 200px;
+.stock-market-box h2 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.stock-market-box:nth-child(3) {
-    bottom: 300px;
-    left: 300px;
+.stock-market-box p {
+    margin-bottom: 10px;
 }
 
+.stock-market-box button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.stock-market-box button:last-child {
+    margin-right: 0;
+}
+
+.stock-market-box button:hover {
+    background-color: #0056b3;
+}
 
 .furnace-container {
   position: fixed; /* Fixed positioning */
